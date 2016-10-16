@@ -18,7 +18,7 @@ public class Palindrome {
                 for(int i=999;i>=100;i--){
                     for(int j = 999; j>= 100; j--){
                         numberToBeChecked = i*j;
-                        if(checkPalindrom(numberToBeChecked)==true){
+                        if(isPalindrom(numberToBeChecked)){
                             if(biggestPalindrome < numberToBeChecked){
                                 biggestPalindrome = numberToBeChecked;
                             }
@@ -35,7 +35,7 @@ public class Palindrome {
                 for(int i=9999;i>=1000;i--){
                     for(int j = 9999; j>= 1000; j--){
                         numberToBeChecked = i*j;
-                        if(checkPalindrom(numberToBeChecked)==true){
+                        if(checkPalindrom(numberToBeChecked)){
                             if(biggestPalindrome < numberToBeChecked){
                                 biggestPalindrome = numberToBeChecked;
                             }
@@ -51,7 +51,7 @@ public class Palindrome {
         }//end switch
     }//end getPalindrome
 
-    private boolean checkPalindrom(int i){
+    private boolean isPalindrom(int i){
         int reverse = 0;
         int original;
         int number;
@@ -70,11 +70,7 @@ public class Palindrome {
             return true;
         }
 
-
-        else{
-            return false;
-        }
-
+        return false;
 
     }
 

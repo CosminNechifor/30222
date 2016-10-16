@@ -6,7 +6,7 @@ package AS3;
 public class Main {
 
     public static void main(String[] args){
-        Palindrome palindrome = new Palindrome(3);
+        Palindrome palindrome = new Palindrome(4);
         palindrome.getPalindrome();
 
     }

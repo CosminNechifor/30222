@@ -9,6 +9,7 @@ public class Multiples {
     private int finishPoint;
     private int firstNumberMultiples;
     private int secondNumberMultiples;
+    private int sumMultiples;
 
 
     public Multiples(int startingPoint, int finishPoint, int firstNumberMultiples, int secondNumberMultiples){
@@ -18,21 +19,29 @@ public class Multiples {
         this.secondNumberMultiples = secondNumberMultiples;
     }
 
-    public void getMultiples(){
+    public void printMultiples(){
 
         System.out.println("\nMultiples: ");
-
+        sumMultiples = 0;
         for(int i = startingPoint; i < finishPoint; i++){
 
-            if(i % firstNumberMultiples == 0)
+            if(i % firstNumberMultiples == 0){
                 System.out.printf("%d ",i);
+                sumMultiples += i;
+            }
 
-            else if (i % secondNumberMultiples == 0)
+
+            else if (i % secondNumberMultiples == 0){
                 System.out.printf("%d ",i);
+                sumMultiples += i;
+            }
 
-            i++;
         }
         System.out.print(".");
+    }
+
+    public int mulptiplesSum{
+        return sumMultiples;
     }
 
     public void setFinishPoint(int finishPoint) {

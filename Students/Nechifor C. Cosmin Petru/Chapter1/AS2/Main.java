@@ -5,8 +5,8 @@ package AS2;
  */
 public class Main {
     public static void main(String[] args){
-        Fibonacci fib = new Fibonacci(4000000);
-        System.out.println("Result " + fib.getSumEven());
+        Fibonacci fibonacci = new Fibonacci(4000000);
+        System.out.println("Result " + fibonacci.getSumEven());
 
     }
 }
