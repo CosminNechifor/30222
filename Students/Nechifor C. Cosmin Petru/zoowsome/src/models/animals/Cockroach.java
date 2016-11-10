@@ -5,6 +5,7 @@ package models.animals;
  */
 public class Cockroach extends Insect{
     public Cockroach(String name, int nrOfLegs, boolean canFly){
+        super(0.5,0.07);
         setName(name);
         setDangerous(false);
         setFly(canFly);

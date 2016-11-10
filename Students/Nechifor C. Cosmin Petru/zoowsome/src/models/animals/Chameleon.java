@@ -5,6 +5,7 @@ package models.animals;
  */
 public class Chameleon extends Reptile {
     public Chameleon(String name){
+        super(1.0,0.01);
         setName(name);
         setLaysEggs(true);
         setNrOfLegs(4);

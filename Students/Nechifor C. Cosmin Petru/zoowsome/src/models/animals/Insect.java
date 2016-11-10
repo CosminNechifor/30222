@@ -7,6 +7,10 @@ public abstract class Insect extends Animal {
     private boolean fly;
     private boolean dangerous;
 
+    public Insect(double maintenanceCost, double dangerPerc){
+        super(maintenanceCost,dangerPerc);
+    }
+
     public void setDangerous(boolean dangerous) {
         this.dangerous = dangerous;
     }

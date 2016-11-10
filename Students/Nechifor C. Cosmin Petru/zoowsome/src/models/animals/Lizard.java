@@ -5,6 +5,7 @@ package models.animals;
  */
 public class Lizard extends Reptile {
     public Lizard(String name, boolean laysEggs){
+        super(1,0.01);
         setNrOfLegs(4);
         setName(name);
         setLaysEggs(laysEggs);

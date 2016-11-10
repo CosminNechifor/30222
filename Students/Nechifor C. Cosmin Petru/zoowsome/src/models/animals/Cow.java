@@ -5,6 +5,7 @@ package models.animals;
  */
 public class Cow extends Mammal {
     public Cow(String name, int nrOfLegs){
+        super(3.0,0.02);
         setNormalBodyTemp(45);
         setPercBodyHair(89);
         setNrOfLegs(nrOfLegs);

@@ -1,9 +1,14 @@
 package controllers;
 
 import models.animals.Animal;
-import services.factories.AnimalFactory;
+import models.employees.Caretaker;
+import models.employees.Employee;
+import services.factories.Animals.AnimalFactory;
 import services.factories.Constants;
-import services.factories.SpeciesFactory;
+import services.factories.Animals.SpeciesFactory;
+import services.factories.Employee.CaretakerFactory;
+
+
 
 import java.util.Random;
 
@@ -11,16 +16,7 @@ import java.util.Random;
  * Created by p on 10/31/2016.
  */
 public class MainController {
-    public static final int SIZE_OF_ZOO = 50;
     public static void main(String[] args) throws Exception {
-
-        /*
-        AnimalFactory abstractFactory = new AnimalFactory();
-        SpeciesFactory speciesFactory1 = abstractFactory.getSpeciesFactory(Constants.Species.MAMMALS);
-        Animal animal = speciesFactory1.getAnimal(Constants.Animals.Mammals.MONKEY);
-        System.out.printf("We have an animal with %d legs!\n", animal.getNrOfLegs());
-        */
-
 
         AnimalFactory abstractFactory = new AnimalFactory();
 
@@ -31,10 +27,11 @@ public class MainController {
         SpeciesFactory speciesFactoryAquatic = abstractFactory.getSpeciesFactory(Constants.Species.AQUATICS);
 
         Random random = new Random();
-        Animal[] animal = new Animal[SIZE_OF_ZOO];
+        Animal[] animal = new Animal[Constants.numbers.SIZE_OF_ZOO];
         int randomIntAnimal;
+        String result;
 
-        for(int i = 0; i < SIZE_OF_ZOO; i++){
+        for(int i = 0; i < Constants.numbers.SIZE_OF_ZOO; i++){
             randomIntAnimal = random.nextInt(15);
             switch (randomIntAnimal){
                 case 0:
@@ -84,8 +81,45 @@ public class MainController {
                     break;
             }
         }
-        for (int i = 0; i < SIZE_OF_ZOO; i++){
+        for (int i = 0; i < Constants.numbers.SIZE_OF_ZOO; i++){
             System.out.printf("We have an %s with %d legs!\n", animal[i].getName(), animal[i].getNrOfLegs());
+        }
+
+
+        CaretakerFactory caretakerFactory = new CaretakerFactory();
+        Employee[] employees = new Employee[Constants.numbers.NOOFWORKERS];
+
+        for (int i = 0; i < Constants.numbers.NOOFWORKERS; i++){
+            employees[i] = caretakerFactory.getEmployee(Constants.Employee.CARETAKER);
+        }
+
+
+        nextCaretaker:
+        for (int i = 0; i < Constants.numbers.NOOFWORKERS; i++){
+            for (int j = 0; j < Constants.numbers.SIZE_OF_ZOO; j++){
+                if((employees[i].isDead() == false) && (animal[j].isTakenCareOf() == false)){
+                    result = ((Caretaker) employees[i]).takeCareOf(animal[j]);
+                    if(result.equals(Constants.Employee.Caretakers.TCO_KILLED)){
+                        employees[i].setDead(true);
+                        System.out.println(employees[i].getName() + " is dead!");
+                        continue nextCaretaker;
+                    }else if(result.equals(Constants.Employee.Caretakers.TCO_NO_TIME)){
+                        continue;
+                    }
+                    else{
+                        animal[j].setTakenCareOf(true);
+                    }
+                }
+            }
+        }
+        System.out.println();
+        System.out.println();
+        for (int i = 0; i < Constants.numbers.SIZE_OF_ZOO; i++) {
+            if (animal[i].isTakenCareOf()) {
+                System.out.println(animal[i].getName() + " is taken care of.");
+            } else {
+                System.out.println(animal[i].getName() + " is not taken care of.");
+            }
         }
     }
 }

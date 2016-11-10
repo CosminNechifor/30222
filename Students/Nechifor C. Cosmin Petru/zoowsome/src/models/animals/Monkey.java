@@ -6,6 +6,7 @@ package models.animals;
 public class Monkey extends Mammal {
 
     public Monkey(String name, int nrOfLegs){
+        super(2.0,0.10);
         setName(name);
         setNrOfLegs(nrOfLegs);
         setPercBodyHair(98);

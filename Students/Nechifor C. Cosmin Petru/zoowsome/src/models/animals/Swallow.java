@@ -5,6 +5,7 @@ package models.animals;
  */
 public class Swallow extends Bird {
     public Swallow(String name, boolean migrates, int avgFlightAlt ){
+        super(1,0.01);
         setName(name);
         setAvgFlightAltitude(avgFlightAlt);
         setMigrates(migrates);

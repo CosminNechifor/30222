@@ -6,6 +6,7 @@ package models.animals;
 public class Butterfly extends Insect {
 
     public Butterfly(String name, int nrOfLegs, boolean dangerous){
+        super(0.1,0.001);
         setName(name);
         setNrOfLegs(nrOfLegs);
         setDangerous(dangerous);

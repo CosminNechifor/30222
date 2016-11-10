@@ -5,6 +5,7 @@ package models.animals;
  */
 public class Eagle extends Bird {
     public Eagle(String name, boolean migrates, int avgFlightAltitude){
+        super(2.0,0.09);
         setNrOfLegs(2);
         setName(name);
         setAvgFlightAltitude(avgFlightAltitude);

@@ -38,4 +38,24 @@ public final class Constants {
             public static final String OTTER = "Otter";
         }
     }
+
+    public static final class Employee{
+        public static final class Caretakers{
+            public static final String TCO_SUCCESS = "SUCCESS";
+            public static final String TCO_KILLED = "KILLED";
+            public static final String TCO_NO_TIME = "NO_TIME";
+        }
+        public static final String CARETAKER = "Caretaker";
+        public static final String[] NAME = {"Alex", "George", "Radu", "Andrei", "Cosmin", "Peter"};
+
+    }
+    public static final class numbers{
+        public static final int ONETHOUSAND = 1000;
+        public static final int NOOFWORKERS = 10;
+        public static final int SIZE_OF_ZOO = 50;
+        public static final double CROCODILE_KILLING_PREDISPOSITION = 0.50;
+        public static final double SPIDER_KILLING_PREDISPOSITION = 0.25;
+        public static final double TIGER_KILLING_PREDISPOSITION = 0.50;
+    }
+
 }

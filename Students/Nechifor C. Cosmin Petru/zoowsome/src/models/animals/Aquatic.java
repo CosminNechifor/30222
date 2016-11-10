@@ -6,9 +6,13 @@ package models.animals;
 public abstract class Aquatic extends Animal{
     private int avgSwimDepth;
     public enum typeOfWater{
-        saltWater, freshWater
+        SALT_WATER, FRESH_WATER
     }
     private typeOfWater waterType;
+
+    public Aquatic(double maintenanceCost, double dangerPerc){
+        super(maintenanceCost,dangerPerc);
+    }
 
     public int getAvgSwimDepth() {
         return avgSwimDepth;

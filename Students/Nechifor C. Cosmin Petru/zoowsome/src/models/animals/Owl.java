@@ -6,6 +6,7 @@ package models.animals;
 public class Owl extends Bird {
     //There are some owls who migrate
     public Owl(String name, boolean migrate){
+        super(1,0.02);
         setNrOfLegs(2);
         setMigrates(migrate);
         setName(name);

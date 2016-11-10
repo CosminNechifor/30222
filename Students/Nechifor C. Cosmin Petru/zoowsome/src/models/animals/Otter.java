@@ -5,8 +5,9 @@ package models.animals;
  */
 public class Otter extends Aquatic {
     public Otter(String name, int avgSwimDepth){
+        super(1,0.01);
         setAvgSwimDepth(avgSwimDepth);
-        setWaterType(typeOfWater.freshWater);
+        setWaterType(typeOfWater.FRESH_WATER);
         setName(name);
         setNrOfLegs(4);
     }
