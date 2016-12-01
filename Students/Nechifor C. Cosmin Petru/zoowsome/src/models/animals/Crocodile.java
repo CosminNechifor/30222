@@ -2,7 +2,11 @@ package models.animals;
 
 import services.factories.Constants;
 
+import javax.xml.stream.XMLEventWriter;
+import javax.xml.stream.XMLStreamException;
 import java.util.Date;
+
+import static repositories.AnimalRepository.createNode;
 
 /**
  * Created by p on 10/31/2016.
@@ -29,5 +33,10 @@ public class Crocodile extends Reptile {
         else{
             return 0;
         }
+    }
+
+    public void encodeToXml(XMLEventWriter eventWriter) throws XMLStreamException {
+        super.encodeToXml(eventWriter);
+        createNode(eventWriter, Constants.XML_TAGS.DISCRIMINANT, Constants.Animals.Reptile.CROCODILE);
     }
 }

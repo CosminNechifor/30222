@@ -57,5 +57,9 @@ public final class Constants {
         public static final double SPIDER_KILLING_PREDISPOSITION = 0.25;
         public static final double TIGER_KILLING_PREDISPOSITION = 0.50;
     }
+    public static final class XML_TAGS{
+        public static final String ANIMAL = "Animal";
+        public static final String DISCRIMINANT = "DISCRIMINANT";
+    }
 
 }

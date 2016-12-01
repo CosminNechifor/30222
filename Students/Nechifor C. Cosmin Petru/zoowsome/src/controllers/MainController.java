@@ -3,13 +3,13 @@ package controllers;
 import models.animals.Animal;
 import models.employees.Caretaker;
 import models.employees.Employee;
+import repositories.AnimalRepository;
 import services.factories.Animals.AnimalFactory;
 import services.factories.Constants;
 import services.factories.Animals.SpeciesFactory;
 import services.factories.Employee.CaretakerFactory;
 
-
-
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -25,6 +25,9 @@ public class MainController {
         SpeciesFactory speciesFactoryInsects = abstractFactory.getSpeciesFactory(Constants.Species.INSECTS);
         SpeciesFactory speciesFactoryBirds = abstractFactory.getSpeciesFactory(Constants.Species.BIRDS);
         SpeciesFactory speciesFactoryAquatic = abstractFactory.getSpeciesFactory(Constants.Species.AQUATICS);
+
+        ArrayList<Animal> animals = new ArrayList<Animal>();
+        AnimalRepository animalRepository = new AnimalRepository();
 
         Random random = new Random();
         Animal[] animal = new Animal[Constants.numbers.SIZE_OF_ZOO];
@@ -121,5 +124,11 @@ public class MainController {
                 System.out.println(animal[i].getName() + " is not taken care of.");
             }
         }
+
+        for (int i = 0; i < Constants.numbers.SIZE_OF_ZOO; i++) {
+            animals.add(animal[i]);
+        }
+        animalRepository.save(animals);
+        animalRepository.load();
     }
 }
